@@ -6,13 +6,14 @@ import { ShadowRectBackground } from "../ui/ShadowRectBackground";
 import Image from "next/image";
 import { Logo } from "../ui/Logo";
 import { PlayIcon, PauseIcon } from "@heroicons/react/solid"; // Zakładam, że używasz HeroIcons
+import { LampContainer } from "./Lamp";
 
 export const Hero = () => {
   return (
     <>
       <section
         className={cn(
-          "relative dark:bg-neutral-950 w-full overflow-hidden shadow-md"
+          "relative  w-full overflow-hidden shadow-md"
           // "bg-gradient-to-tr from-[#08102b] via-[#EAEEFE] to-[#EAEEFE]"
         )}
       >
@@ -20,26 +21,27 @@ export const Hero = () => {
           <ShadowRectBackground rows={25} columns={10} />
         </div>
 
-        <div className="absolute right-0 bottom-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[50%] rounded-full bg-blue-400 opacity-50 blur-[190px]"></div>
-        <div className="absolute left-0 bottom-0 h-[800px] w-[1200px] -translate-x-[20%] translate-y-[50%] rounded-full bg-blue-300 opacity-50 blur-[320px]"></div>
+        <div className="absolute right-0 bottom-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[50%] rounded-full bg-rose-400 opacity-50 blur-[190px]"></div>
+        <div className="absolute left-0 bottom-0 h-[800px] w-[1200px] -translate-x-[20%] translate-y-[50%] rounded-full bg-rose-300 opacity-50 blur-[320px]"></div>
 
         <div className="relative min-h-screen mx-auto max-w-7xl py-[230px] flex">
           <div className="flex-[3] ">
-            <div className="px-4 pt-16">
-              <div className="border-gray-alpha-400 dark:border-neutral-900 gap-4  w-[260px] mb-12">
+            <div className="px-4 pt-8">
+              <div className="border-gray-alpha-400 -900 gap-4  w-[350px] mb-12">
                 <Logo />
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-wide font-bold mb-6 md:mb-8 relative max-w-[900px] ">
-                Twierdza Bar <br />
+               
                 <span
                   className={cn(
-                    "relative bg-clip-text text-transparent transition-all bg-gradient-to-b from-neutral-900 to-neutral-900 z-10",
-                    "dark:from-neutral-50 dark:to-neutral-400"
+                    "relative bg-clip-text text-transparent transition-all bg-gradient-to-b from-neutral-400 to-neutral-100 z-10",
                   )}
-                ></span>
+                >
+                   Twierdza Bar <br />
+                </span>
               </h1>
 
-              <h2 className="relative font-regular text-base md:text-lg lg:text-3xl text-neutral-900 dark:text-neutral-100 tracking-wide mb-6 md:mb-8 max-w-3xl antialiased">
+              <h2 className="relative font-regular text-base md:text-lg lg:text-3xl text-neutral-100  tracking-wide mb-6 md:mb-8 max-w-3xl antialiased">
                 Moc Fortecy, Brzmienie Rocka
               </h2>
               <div className="relative flex flex-wrap gap-2 mb-6 md:mb-8 max-w-[460px]">
@@ -54,7 +56,7 @@ export const Hero = () => {
           </div>
           <div className="flex-[4] ">
             <div className="relative w-full">
-              <div className="absolute w-[120%] left-[0px] top-[0] object-cover rounded-lg bg-white  backdrop-blur-sm shadow-2xl dark:bg-neutral-800 dark:border-neutral-900 dark:shadow-xl dark:bg-opacity-90 dark:border-opacity-90">
+              <div className="absolute w-[120%] left-[0px] top-[0] object-cover rounded-lg bg-white  backdrop-blur-sm shadow-2xl ">
                 <Image
                   src="/hero.jpg"
                   alt="Shape"
@@ -104,30 +106,38 @@ function Music() {
   };
 
   return (
-    <section className="max-w-3xl mx-auto py-32" id="music">
+    <>
+    <LampContainer>
+    </LampContainer>
+    <section className="bg-neutral-950">
+
+    <div className="max-w-3xl mx-auto pb-32 " id="music">
       <SectionTitle title={"Muzyka"} />
       <div className="grid grid-cols-1 gap-8">
         {songs.map((item, index) => (
-          <div className="relative rounded-xl shadow-md overflow-hidden" key={index}>
-            <div className="absolute top-0 left-0 w-full h-full">
+          <div className="relative rounded-full shadow-2xl overflow-hidden border border-neutral-700 bg-neutral-900 text-white" key={index}>
+            {/* <div className="absolute top-0 left-0 w-full h-full">
               <ShadowRectBackground rows={25} columns={22} />
-            </div>
-            <div className="absolute right-0 bottom-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[50%] rounded-full bg-blue-100 opacity-40 blur-[190px]"></div>
+            </div> */}
+            <div className="absolute left-0 bottom-0 h-[400px] w-[200px] translate-x-[0%] translate-y-[50%] rounded-full bg-rose-500 opacity-40 blur-[190px]"></div>
 
             <div className="px-8 py-4 relative flex justify-between items-center">
               <p className="text-lg font-medium tracking-widest">{item.title}</p>
               <button onClick={() => handlePlayPause(index)} className="focus:outline-none">
                 {isPlaying === index ? (
-                  <PauseIcon className="w-8 h-8 text-gray-700" />
+                  <PauseIcon className="w-8 h-8 text-white" />
                 ) : (
-                  <PlayIcon className="w-8 h-8 text-gray-700" />
+                  <PlayIcon className="w-8 h-8 text-white" />
                 )}
               </button>
             </div>
           </div>
         ))}
       </div>
+    </div>
     </section>
+    </>
+
   );
 }
 function Team() {
@@ -163,11 +173,11 @@ function Team() {
       <div className="absolute top-0 left-0 w-full h-full ">
         <ShadowRectBackground rows={25} columns={12} />
       </div>
-      <div className="absolute right-0 top-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[10%] rounded-full bg-blue-300 opacity-50 blur-[190px]"></div>
-      <div className="absolute left-0 top-0 h-[800px] w-[1200px] -translate-x-[20%] translate-y-[10%] rounded-full bg-blue-300 opacity-50 blur-[320px]"></div>
+      <div className="absolute right-0 top-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[10%] rounded-full bg-rose-400 opacity-50 blur-[190px]"></div>
+      <div className="absolute left-0 top-0 h-[800px] w-[200px] -translate-x-[20%] translate-y-[10%] rounded-full bg-rose-300 opacity-50 blur-[320px]"></div>
 
-      <div className="absolute right-0 bottom-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[50%] rounded-full bg-blue-300 opacity-50 blur-[190px]"></div>
-      <div className="absolute left-0 bottom-0 h-[800px] w-[1200px] -translate-x-[20%] translate-y-[50%] rounded-full bg-blue-300 opacity-50 blur-[320px]"></div>
+      <div className="absolute right-0 bottom-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[50%] rounded-full bg-rose-500 opacity-50 blur-[190px]"></div>
+      <div className="absolute left-0 bottom-0 h-[800px] w-[1200px] -translate-x-[20%] translate-y-[50%] rounded-full bg-rose-400 opacity-50 blur-[320px]"></div>
 
       <div className="relative max-w-6xl mx-auto py-32">
         <SectionTitle title={"Zespół"} />
@@ -175,8 +185,8 @@ function Team() {
           {items.map((item, index) => (
             <div
               key={index}
-              style={{ background: "rgba(255,255,255,0.3)" }}
-              className="flex flex-col items-center text-center p-8 backdrop-blur-xl   shadow-md rounded-lg"
+              style={{ background: "rgba(0,0,0,0.5)" }}
+              className="flex flex-col items-center text-center p-8 backdrop-blur-xl  text-neutral-50 shadow-md rounded-lg"
             >
               <Image
                 src={item.src}
@@ -186,7 +196,7 @@ function Team() {
                 className="rounded-md shadow-lg"
               />
               <h2 className="mt-8 text-xl font-bold">{item.title}</h2>
-              <p className="mt-4 text-gray-600">{item.description}</p>
+              <p className="mt-4 ">{item.description}</p>
             </div>
           ))}
         </div>
@@ -197,7 +207,7 @@ function Team() {
 
 const SectionTitle = ({ title, description }) => {
   return (
-    <div className="text-2xl md:text-4xl text-center tracking-wide font-bold mb-16">
+    <div className="text-2xl md:text-4xl text-center tracking-wide font-bold mb-16 text-neutral-100">
       <h2>{title}</h2>
     </div>
   );
@@ -205,10 +215,13 @@ const SectionTitle = ({ title, description }) => {
 
 function Contact() {
   return (
-    <section className="max-w-6xl mx-auto py-32 flex justify-center" id="kontakt">
+    <>
+     <LampContainer>
+    </LampContainer>
+    <section className="max-w-6xl mx-auto pb-32 pt-16 flex justify-center text-white" id="kontakt">
       {/* <SectionTitle title={"Zespół"} /> */}
       <div className="flex">
-        <div className="border-gray-alpha-400 dark:border-neutral-900 gap-4  w-[260px] mb-12">
+        <div className="border-gray-alpha-400  gap-4  w-[260px] mb-12">
           <Logo />
         </div>
         <div>
@@ -231,7 +244,7 @@ function Contact() {
             return (
               <div key={index} className="mb-4">
                 <p className="text-lg">{item.title}</p>
-                <p className="text-neutral-600">
+                <p className="text-neutral-300">
                   {item.value ? item.value : <a href={item.link}>{item.desc}</a>}
                 </p>
               </div>
@@ -240,5 +253,7 @@ function Contact() {
         </div>
       </div>
     </section>
+    </>
+
   );
 }

@@ -3,5 +3,5 @@ import LogoIcon from "@/assets/logo2.png";
 import Image from "next/image";
 
 export const Logo = () => {
-  return <Image src={LogoIcon} alt="Logo" width={190} height={40} />;
+  return <Image src={"/logo3.png"} alt="Logo" width={300} height={80} />;
 };

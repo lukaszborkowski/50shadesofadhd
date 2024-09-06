@@ -18,9 +18,9 @@ export const ShadowRectBackground = ({ rows = 40, columns = 40, gap = 2 }) => {
         rowDivs.push(
           <div
             key={index}
-            className={`bg-gray-50 dark:bg-neutral-700 ${
+            className={`bg-neutral-950  ${
               hasShadow
-                ? "shadow-[0px_0px_0px_3px_rgba(255,255,255,1)_inset] dark:shadow-[0px_0px_0px_3px_rgba(0,0,0,0.2)_inset]"
+                ? "shadow-[0px_0px_0px_3px_rgba(0,0,0,1)_inset] "
                 : ""
             }`}
             style={{
@@ -28,7 +28,7 @@ export const ShadowRectBackground = ({ rows = 40, columns = 40, gap = 2 }) => {
               width: '100%',
               transition: 'background-color 0.3s ease',
               backgroundColor:
-                hoveredIndex === index ? 'var(--neutral-100)' : '',
+                hoveredIndex === index ? 'var(--neutral-900)' : '',
             }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
@@ -48,7 +48,7 @@ export const ShadowRectBackground = ({ rows = 40, columns = 40, gap = 2 }) => {
 
   return (
     <div
-      className="grid bg-gray-100 dark:bg-neutral-800 w-full h-full"
+      className="grid bg-neutral-900 d w-full h-full"
       style={{
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gridTemplateRows: `repeat(${rows}, 1fr)`,

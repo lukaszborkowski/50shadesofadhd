@@ -25,14 +25,14 @@ const menuItems = [
 export function Navbar({ className }: { className?: string }) {
   return (
     <header className="fixed top-5 z-50    w-full ">
-      <div className="flex w-full h-[50px] border  border-gray-neutral-400 shadow-lg rounded-full bg-[rgba(255,255,255,0.7)] backdrop-blur-md max-w-xl mx-auto px-4">
+      <div className="flex w-full h-[50px] border  border-neutral-700 shadow-lg rounded-full bg-[rgba(0,0,0,0.7)] backdrop-blur-md max-w-xl mx-auto px-4">
       
-        <div className="flex items-center justify-between   w-full">
+        <div className="flex items-center justify-between w-full">
         
           <div className="hidden xl:block w-full">
-            <ul className="flex justify-around  text-neutral-600 p-2 font-semibold text-sm w-full tracking-wide">
+            <ul className="flex justify-around  text-neutral-100 p-2 font-semibold text-sm w-full ">
               {menuItems.map((item, index) => (
-                <li key={index} className="hover:bg-neutral-100 transition-all p-2 px-8 rounded-md">
+                <li key={index} className="hover:bg-neutral-800 transition-all p-2 px-8 rounded-md tracking-widest">
                   <Link href={item.href}>{item.title}</Link>
                 </li>
               ))}
@@ -58,7 +58,7 @@ export function MobileNav() {
             fill="currentColor"
             strokeWidth="0"
             viewBox="0 0 512 512"
-            className="text-black dark:text-white h-6 w-6"
+            className="text-black  h-6 w-6"
             height="1em"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
