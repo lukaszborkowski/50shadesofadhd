@@ -1,7 +1,10 @@
 "use client";
 import { Modal, ModalBody, ModalContent, ModalTrigger } from "@/components/ui/AnimatedModal";
 import { Logo } from "@/components/ui/Logo";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { primaryButtonClassName, primaryColor } from "./Hero";
+import { QuizButton } from "./QuizButton";
 
 const menuItems = [
   {
@@ -24,24 +27,21 @@ const menuItems = [
 
 export function Navbar({ className }: { className?: string }) {
   return (
-    <header className="fixed top-5 z-50    w-full ">
-      <div className="flex w-full h-[50px] border  border-neutral-700 shadow-lg rounded-full bg-[rgba(0,0,0,0.7)] backdrop-blur-md max-w-xl mx-auto px-4">
-      
+    <header
+      className="fixed top-0 z-50  py-2 w-full "
+      style={{
+        background: primaryColor,
+      }}
+    >
+      <div className="flex w-full h-[50px]  max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between w-full">
-        
-          <div className="hidden xl:block w-full">
-            <ul className="flex justify-around  text-neutral-100 p-2 font-semibold text-sm w-full ">
-              {menuItems.map((item, index) => (
-                <li key={index} className="hover:bg-neutral-800 transition-all p-2 px-8 rounded-md tracking-widest">
-                  <Link href={item.href}>{item.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Logo />
 
-          <div className="block xl:hidden">
+          <QuizButton className="text-md hidden md:block" />
+
+          {/* <div className="block xl:hidden">
             <MobileNav />
-          </div>
+          </div> */}
         </div>
       </div>
     </header>

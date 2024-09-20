@@ -7,253 +7,117 @@ import Image from "next/image";
 import { Logo } from "../ui/Logo";
 import { PlayIcon, PauseIcon } from "@heroicons/react/solid"; // Zakładam, że używasz HeroIcons
 import { LampContainer } from "./Lamp";
+import { AnimatedTooltip } from "./AnimatedTooltip";
+import { QuizButton } from "./QuizButton";
+
+export const blackColor = "#322625";
+export const primaryColor = "#FFD140";
+
+export const primaryButtonClassName =
+  "bg-[#322625] text-white text-lg font-semibold py-2 px-8 rounded-lg  hover:bg-gray-800 transition duration-150 ease-in-out";
 
 export const Hero = () => {
   return (
     <>
-      <section
-        className={cn(
-          "relative  w-full overflow-hidden shadow-md"
-          // "bg-gradient-to-tr from-[#08102b] via-[#EAEEFE] to-[#EAEEFE]"
-        )}
-      >
-        <div className="absolute top-0 left-0 w-full h-full ">
-          <ShadowRectBackground rows={25} columns={10} />
-        </div>
-
-        <div className="absolute right-0 bottom-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[50%] rounded-full bg-rose-400 opacity-50 blur-[190px]"></div>
-        <div className="absolute left-0 bottom-0 h-[800px] w-[1200px] -translate-x-[20%] translate-y-[50%] rounded-full bg-rose-300 opacity-50 blur-[320px]"></div>
-
-        <div className="relative min-h-screen mx-auto max-w-7xl py-[230px] flex">
-          <div className="flex-[3] ">
-            <div className="px-4 pt-8">
-              <div className="border-gray-alpha-400 -900 gap-4  w-[350px] mb-12">
-                <Logo />
+      <section className={cn("relative bg-[#FFD140] w-full overflow-hidden shadow-md")}>
+        <div className="relative min-h-screen mx-auto max-w-7xl py-[100px] md:py-[180px] flex flex-col md:flex-row">
+          <div className="flex-[4] flex justify-center md:justify-start pt-4 px-4 md:pl-8">
+            <div className="">
+              <div className="mb-4">
+                <Image src="/who2.svg" alt="WHO" width={140} height={200} />
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-wide font-bold mb-6 md:mb-8 relative max-w-[900px] ">
-               
-                <span
-                  className={cn(
-                    "relative bg-clip-text text-transparent transition-all bg-gradient-to-b from-neutral-400 to-neutral-100 z-10",
-                  )}
-                >
-                   Twierdza Bar <br />
-                </span>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 max-w-[900px] ">
+                <p className="mb-2">5 to 9% of the world‘s</p>
+                <p className="mb-2">population suffers</p>
+                <p className="mb-2">from ADHD...</p>
+                <p className="mb-2">How about you?</p>
               </h1>
 
-              <h2 className="relative font-regular text-base md:text-lg lg:text-3xl text-neutral-100  tracking-wide mb-6 md:mb-8 max-w-3xl antialiased">
-                Moc Fortecy, Brzmienie Rocka
-              </h2>
+              <CurrentTestUsers />
+
               <div className="relative flex flex-wrap gap-2 mb-6 md:mb-8 max-w-[460px]">
-                <button className="bg-black flex-1 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-150 ease-in-out">
-                  Kontakt
-                </button>
-                <button className="bg-black flex-1 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-150 ease-in-out">
-                  Zespół
-                </button>
+                <QuizButton className="flex-1" />
+              </div>
+              <div className="flex flex-row items-center mb-4 md:mb-4 w-full">
+                <AnimatedTooltip />
+                <div class="ml-[30px] flex flex-col items-start gap-1">
+                  <div class="flex gap-1">
+                    {[1, 2, 3, 4, 5].map((item) => {
+                      return (
+                        <svg
+                          key={item}
+                          // width="24"
+                          // height="24"
+                          viewBox="0 0 96 96"
+                          className="h-[16px] w-[16px] md:h-[24px] md:w-[24px]"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M96 0H0V96H96V0Z" fill={blackColor} />
+                          <path
+                            d="M47.9999 64.6999L62.5999 61L68.6999 79.8L47.9999 64.6999ZM81.5999 40.4H55.8999L47.9999 16.2L40.0999 40.4H14.3999L35.1999 55.4L27.2999 79.5999L48.0999 64.5999L60.8999 55.4L81.5999 40.4Z"
+                            fill={primaryColor}
+                          />
+                        </svg>
+                      );
+                    })}
+                  </div>
+                  <div class="text-xs md:text-base text-base-content/80">
+                    <span class="font-semibold text-base-content">4M+</span> people already know
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="flex-[4] ">
-            <div className="relative w-full">
-              <div className="absolute w-[120%] left-[0px] top-[0] object-cover rounded-lg bg-white  backdrop-blur-sm shadow-2xl ">
+          <div className="flex-[3] flex justify-center">
+            <div className="relative">
+              <div className="  ">
                 <Image
-                  src="/hero.jpg"
-                  alt="Shape"
-                  width={1200}
-                  height={1200}
-                  className="w-[1200px] h-auto rounded-lg"
+                  src="/hero1.png"
+                  alt="Boy"
+                  width={700}
+                  height={700}
+                  className="h-300px md:h-[700px] w-auto object-cover "
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Music />
-      <Team />
-      <Contact />
     </>
   );
 };
 
-function Music() {
-  const [isPlaying, setIsPlaying] = useState(null); // Śledzi, która piosenka gra
-  const [audio, setAudio] = useState(null); // Przechowuje aktualnie odtwarzany audio element
+const CurrentTestUsers = () => {
+  function getFluctuatingNumber() {
+    const min = 800;
+    const max = 1200;
 
-  const songs = [
-    { title: "Titanic", src: "titanic.mp3" }, // Ścieżki do plików audio
-    { title: "Pokerzysta", src: "pokerzysta.mp3" },
-    { title: "Mam dość", src: "mam_dosc.mp3" },
-    { title: "Cat woman", src: "mam_dosc.mp3" },
-    { title: "Blindman", src: "mam_dosc.mp3" },
-  ];
+    // Pobierz aktualny czas
+    const now = new Date();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
 
-  const handlePlayPause = (index) => {
-    if (isPlaying === index) {
-      // Pauza
-      audio.pause();
-      setIsPlaying(null);
-    } else {
-      // Zatrzymaj aktualne audio, jeśli gra inne
-      if (audio) audio.pause();
+    // Oblicz aktualną pozycję w przeciągu godziny (0 to początek godziny, 1 to koniec godziny)
+    const positionInHour = (minutes * 60 + seconds) / 3600;
 
-      // Odtwarzaj nową muzykę
-      const newAudio = new Audio(songs[index].src);
-      newAudio.play();
-      setAudio(newAudio);
-      setIsPlaying(index);
-    }
-  };
+    // Użyj funkcji sinusoidalnej, aby uzyskać wartość wahającą się pomiędzy 0 a 1
+    const fluctuation = (Math.sin(positionInHour * 2 * Math.PI) + 1) / 2;
+
+    // Przekształć wartość w zakresie 0-1 na zakres 800-1200
+    return Math.round(min + fluctuation * (max - min));
+  }
 
   return (
-    <>
-    <LampContainer>
-    </LampContainer>
-    <section className="bg-neutral-950">
-
-    <div className="max-w-3xl mx-auto pb-32 " id="music">
-      <SectionTitle title={"Muzyka"} />
-      <div className="grid grid-cols-1 gap-8">
-        {songs.map((item, index) => (
-          <div className="relative rounded-full shadow-2xl overflow-hidden border border-neutral-700 bg-neutral-900 text-white" key={index}>
-            {/* <div className="absolute top-0 left-0 w-full h-full">
-              <ShadowRectBackground rows={25} columns={22} />
-            </div> */}
-            <div className="absolute left-0 bottom-0 h-[400px] w-[200px] translate-x-[0%] translate-y-[50%] rounded-full bg-rose-500 opacity-40 blur-[190px]"></div>
-
-            <div className="px-8 py-4 relative flex justify-between items-center">
-              <p className="text-lg font-medium tracking-widest">{item.title}</p>
-              <button onClick={() => handlePlayPause(index)} className="focus:outline-none">
-                {isPlaying === index ? (
-                  <PauseIcon className="w-8 h-8 text-white" />
-                ) : (
-                  <PlayIcon className="w-8 h-8 text-white" />
-                )}
-              </button>
-            </div>
-          </div>
-        ))}
+    <div className="flex items-center py-1 mb-4 space-x-2  rounded-full w-fit">
+      <div className="flex items-center justify-center w-5 h-5 p-1 border-2 border-[#322625] rounded-full animate-pulse shrink-0">
+        <div className="w-2 h-2 bg-[#322625] rounded-full"></div>
       </div>
-    </div>
-    </section>
-    </>
 
-  );
-}
-function Team() {
-  const items = [
-    {
-      src: "/michal.jpg",
-      title: "Michał Chojnowski",
-      description:
-        "gitarzysta, wokalista i autor tekstów. Jest miłośnikiem surowego, lekko chropowatego brzmienia. Jego atutem jest kreatywność - nieprzerwanie poszukuje nowych stylów, brzmienia i wszystkiego, czym jeszcze muzyka może zaskoczyć. Często wykorzystuje fuzz, łapiąc przy tym vibe Hendrixa. Na scenie to wulkan energii, której nie powstydziłaby się nawet elektrownia atomowa.",
-    },
-    {
-      src: "/michal.jpg",
-      title: "Paweł Andruszkiewicz",
-      description:
-        " w TWIERDZY występujący w podwójnej roli - basisty i klawiszowca. Dla niego to żadne wyzwanie! Wykorzystuje kultowe brzmienia hamonda i rhodesa, łącząc je z syntezatorem basowym. W ten sposób serwuje uwielbianą klasykę w nowym, świeżym wydaniu. Paweł to artystyczny umysł pełen twórczej pasji.",
-    },
-    {
-      src: "/michal.jpg",
-      title: "Artur Włodkowski",
-      description:
-        "to doświadczenie przez duże „D”! Wybitny saksofonista. Przez lata występował oraz nagrywał z topowymi artystami, zarówno w kraju jak i za granicą. Niezwykle energiczna gra solowa, przeplatana wręcz transowymi partiami sekcyjnymi, to jego znak rozpoznawczy. W TWIERDZY wykorzystuje saksofon tenorowy, ale nie ogranicza się do niego. Sięga także po baryton podbijający ciężki rytm rodem z nagrań MORPHINE",
-    },
-    {
-      src: "/michal.jpg",
-      title: "Bartek Dobkowski",
-      description:
-        "perkusista, który swoią grą nadaje koncertowi dynamiki i energii. Jego uderzenia są niczym serce zespołu, bijące w idealnym rytmie, porywające do tańca i dające każdemu utworowi niepowtarzalną moc.",
-    },
-  ];
-
-  return (
-    <section className="w-full overflow-hidden  relative shadow-md " id="zespol">
-      <div className="absolute top-0 left-0 w-full h-full ">
-        <ShadowRectBackground rows={25} columns={12} />
+      <div className="flex space-x-1 text-xs sm:text-sm">
+        <p className="font-medium">{getFluctuatingNumber()}</p>
+        <p>people currently taking the test</p>
       </div>
-      <div className="absolute right-0 top-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[10%] rounded-full bg-rose-400 opacity-50 blur-[190px]"></div>
-      <div className="absolute left-0 top-0 h-[800px] w-[200px] -translate-x-[20%] translate-y-[10%] rounded-full bg-rose-300 opacity-50 blur-[320px]"></div>
-
-      <div className="absolute right-0 bottom-0 h-[800px] w-[1200px] translate-x-[20%] translate-y-[50%] rounded-full bg-rose-500 opacity-50 blur-[190px]"></div>
-      <div className="absolute left-0 bottom-0 h-[800px] w-[1200px] -translate-x-[20%] translate-y-[50%] rounded-full bg-rose-400 opacity-50 blur-[320px]"></div>
-
-      <div className="relative max-w-6xl mx-auto py-32">
-        <SectionTitle title={"Zespół"} />
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2  ">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              style={{ background: "rgba(0,0,0,0.5)" }}
-              className="flex flex-col items-center text-center p-8 backdrop-blur-xl  text-neutral-50 shadow-md rounded-lg"
-            >
-              <Image
-                src={item.src}
-                alt={item.title}
-                width={300}
-                height={200}
-                className="rounded-md shadow-lg"
-              />
-              <h2 className="mt-8 text-xl font-bold">{item.title}</h2>
-              <p className="mt-4 ">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const SectionTitle = ({ title, description }) => {
-  return (
-    <div className="text-2xl md:text-4xl text-center tracking-wide font-bold mb-16 text-neutral-100">
-      <h2>{title}</h2>
     </div>
   );
 };
-
-function Contact() {
-  return (
-    <>
-     <LampContainer>
-    </LampContainer>
-    <section className="max-w-6xl mx-auto pb-32 pt-16 flex justify-center text-white" id="kontakt">
-      {/* <SectionTitle title={"Zespół"} /> */}
-      <div className="flex">
-        <div className="border-gray-alpha-400  gap-4  w-[260px] mb-12">
-          <Logo />
-        </div>
-        <div>
-          <h3 className="text-2xl md:text-4xl  tracking-wide font-bold  mb-4">Kontakt</h3>
-          {[
-            {
-              title: "Telefon",
-              value: "+48 502 357 527",
-            },
-            {
-              title: "E-mail",
-              value: "jolaand1@wp.pl",
-            },
-            {
-              title: "Facebook",
-              desc: "https://www.facebook.com",
-              link: "https://www.facebook.com/profile.php?id=61562509206626",
-            },
-          ].map((item, index) => {
-            return (
-              <div key={index} className="mb-4">
-                <p className="text-lg">{item.title}</p>
-                <p className="text-neutral-300">
-                  {item.value ? item.value : <a href={item.link}>{item.desc}</a>}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-    </>
-
-  );
-}

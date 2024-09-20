@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 
 import "./globals.css";
 import { Navbar } from "@/components/sections/Navbar";
+import { Footer } from "@/components/sections/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Twierdza Bar",
+  title: "50 Shades of ADHD",
   description: "Twierdza Bar - Moc Fortecy, Brzmienie Rocka",
 };
 
@@ -21,9 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.svg" />
+      </head>
       <body className={poppins.className}>
         <Navbar />
         {children}
+        <Footer/>
       </body>
     </html>
   );

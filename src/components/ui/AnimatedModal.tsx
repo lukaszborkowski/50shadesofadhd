@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 "use client";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -31,6 +33,7 @@ export function Modal({ children }: { children: ReactNode }) {
 export const ModalTrigger = ({
   children,
   className,
+  style
 }: {
   children: ReactNode;
   className?: string;
@@ -43,13 +46,14 @@ export const ModalTrigger = ({
         className
       )}
       onClick={() => setOpen(true)}
+      style={style}
     >
       {children}
     </button>
   );
 };
 
-export const ModalBody = ({ children, className }: { children: ReactNode; className?: string }) => {
+export const ModalBody = ({ children, className, style }: { children: ReactNode; className?: string }) => {
   const { open } = useModal();
 
   useEffect(() => {
@@ -86,7 +90,7 @@ export const ModalBody = ({ children, className }: { children: ReactNode; classN
           <motion.div
             ref={modalRef}
             className={cn(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-white -950 border border-transparent  md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+              "min-h-[50%] max-h-[90%] max-w-[600px] bg-white -950 border border-transparent rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
               className
             )}
             initial={{
@@ -111,6 +115,8 @@ export const ModalBody = ({ children, className }: { children: ReactNode; classN
               stiffness: 260,
               damping: 15,
             }}
+          style={style}
+
           >
             <CloseIcon />
             {children}
