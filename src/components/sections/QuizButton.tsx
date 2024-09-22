@@ -11,14 +11,14 @@ export const QuizButton = ({ className, style = {} }: any) => {
   return (
     <>
       <Image
-        src={"/woman.png"}
+        src={"https://files.youform.io/background-images/OHCGoaLUjkSKa2ijoci0hvpt2bcjxq2KSS4h2FiP.png"}
         alt={"Woman"}
         width={250}
         height={340}
         className="absolute hidden mb-8 h-[200px] object-contain"
       />
        <Image
-        src={"/man.png"}
+        src={"https://files.youform.io/form-files/vXY0zt3hGwzdS5vUzrtatLMzmJDKYkegq5yIx0AU.png"}
         alt={"Man"}
         width={250}
         height={340}
@@ -43,12 +43,12 @@ export const QuizButton = ({ className, style = {} }: any) => {
               {[
                 {
                   title: "Woman",
-                  image: "/woman.png",
+                  image: "https://files.youform.io/background-images/OHCGoaLUjkSKa2ijoci0hvpt2bcjxq2KSS4h2FiP.png",
                   href: "https://form.50shadesofadhd.com/adhd-man",
                 },
                 {
                   title: "Man",
-                  image: "/man.png",
+                  image: "https://files.youform.io/form-files/vXY0zt3hGwzdS5vUzrtatLMzmJDKYkegq5yIx0AU.png",
                   href: "https://form.50shadesofadhd.com/adhd-man",
                 },
               ].map((item, index) => {
