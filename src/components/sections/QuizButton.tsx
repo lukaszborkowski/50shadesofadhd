@@ -11,14 +11,14 @@ export const QuizButton = ({ className, style = {} }: any) => {
   return (
     <>
       <Image
-        src={"https://form.50shadesofadhd.com/adhd-woman"}
+        src={"/woman.png"}
         alt={"https://form.50shadesofadhd.com/adhd-woman"}
         width={250}
         height={340}
         className="absolute hidden mb-8 h-[200px] object-contain"
       />
        <Image
-        src={"https://form.50shadesofadhd.com/adhd-man"}
+        src={"/man.png"}
         alt={"https://form.50shadesofadhd.com/adhd-man"}
         width={250}
         height={340}
