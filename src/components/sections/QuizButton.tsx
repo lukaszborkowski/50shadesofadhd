@@ -15,14 +15,14 @@ export const QuizButton = ({ className, style = {} }: any) => {
         alt={"Woman"}
         width={250}
         height={340}
-        className="absolute hidden mb-8 h-[200px] object-contain"
+        className="absolute opacity-0 -z-10 mb-8 h-[200px] object-contain"
       />
        <Image
         src={"https://files.youform.io/form-files/vXY0zt3hGwzdS5vUzrtatLMzmJDKYkegq5yIx0AU.png"}
         alt={"Man"}
         width={250}
         height={340}
-        className="absolute hidden mb-8 h-[200px] object-contain"
+        className="absolute opacity-0 -z-10 mb-8 h-[200px] object-contain"
       />
       <Modal>
         <ModalTrigger
