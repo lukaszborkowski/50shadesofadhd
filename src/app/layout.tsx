@@ -11,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "50 Shades of ADHD",
-  description: "Twierdza Bar - Moc Fortecy, Brzmienie Rocka",
+  title: "Quick ADHD Self-Test",
+  description: "Do you know your ADHD type? Discover common symptoms of ADHD. Early recognition can make all the difference. Start now",
 };
 
 export default function RootLayout({
