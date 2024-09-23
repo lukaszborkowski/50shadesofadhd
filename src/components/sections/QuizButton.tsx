@@ -66,7 +66,7 @@ export const QuizButton = ({ className, style = {} }: any) => {
                         alt={item.title}
                         width={250}
                         height={340}
-                        className="mb-8 h-[200px] object-contain"
+                        className="mb-4 md:mb-8 h-[100px] md:h-[200px] object-contain"
                       />
                       <p className="text-center text-xl font-bold">
                         {item.title}{" "}
